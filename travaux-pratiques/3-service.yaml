@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: mon-premier-service
+spec:
+  selector:
+    app: nginx # labels des pods : le deployment n'entre pas en jeu ici
+  ports:
+    - protocol: TCP # Par défaut c'est du TCP. Mais ça aurait pu etre de l'UDP
+      port: 80
+      targetPort: 80
+      name: http # Utile par la suite pour adresser le port (ingress, ...)
+# TODO faire un tour de magie avec kubectl + jq

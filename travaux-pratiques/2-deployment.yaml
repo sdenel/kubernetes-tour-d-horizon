@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mon-premier-deployment
+  labels:
+    app: nginx
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: nginx # Doit etre un sous ensemble des labels définis dans le template ci-dessous
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+      - name: container-1
+        image: sdenel/hello-world
+        ports:
+        - containerPort: 80

@@ -1,0 +1,9 @@
+kind: Pod
+apiVersion: v1
+metadata:
+  name: mon-premier-prod
+spec:
+  containers:
+  - name: container-1
+    image: sdenel/hello-world # nginx:alpine
+# TODO tuer, parler distroless

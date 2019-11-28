@@ -1,0 +1,9 @@
+kind: Namespace
+apiVersion: v1
+metadata:
+  name: mon-premier-namespace
+  labels:
+    owner: sdenel
+  annotations:
+    description: Notre premier namespace
+# TODO: apply, puis get, puis delete

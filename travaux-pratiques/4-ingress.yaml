@@ -1,0 +1,13 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: mon-premier-ingress
+spec:
+  rules:
+    - host: demo.denel.fr
+      http:
+        paths:
+          - path: /
+            backend:
+              serviceName: mon-premier-service
+              servicePort: http
