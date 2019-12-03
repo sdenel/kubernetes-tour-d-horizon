@@ -46,12 +46,11 @@ Comme on a vu, un pod est éphemere. Pour assurer que N pods ayant la meme défi
 6. Faire un deployment progressif
 
 # III. Service
-Comme on a vu (fallait suivre !) du haut d'un Deployment, vous obtenez un tas de pods ephemeres, sans moyen de les joindre facilement. Une ressource de type Service est nécessaire pour ça.
+Comme on a vu (fallait suivre !) du haut d'un Deployment, vous obtenez un tas de pods ephemeres. Une ressource de type Service est nécessaire pour assurer un accès durable (à travers une IP fixe). On peut voir un Service comme un Load Balancer interne au cluster.
 
 1. Instancier la stack du service fournie
-2. Récupérer l'IP du service, ainsi que son nom de domaine
-   Noter qu'un serveur DNS interne permet de fournir aux services un nom de domaine, qui peut donc etre utilisé dans les autres applications (ex microservices)
-3. Y accéder depuis un autre pod du cluster : `k run -ti --image=alpine alpine /bin/sh`
+2. Récupérer l'IP du service, ainsi que son nom de domaine. Noter qu'un serveur DNS interne (voir /etc/resolv.conf dans un Pod) permet de fournir aux services un nom de domaine, qui peut donc etre utilisé dans les autres applications (ex microservices).
+3. Y accéder depuis un autre pod dans le cluster : `k run -ti --image=alpine alpine /bin/sh` puis curl sur le nom de domaine du Service
 
 **Pour ceux qui sont en avance...**
 5. Aller voir les iptables sur un des noeuds du cluster (https://worker-1-term.k8s.lab.smartwavesa.com)
@@ -64,7 +63,7 @@ Comme on a vu (fallait suivre !) du haut d'un Deployment, vous obtenez un tas de
 1. **Customiser** puis déployer la ressource de type ingress. Attention à utiliser un nom qui vous est propre pour ne pas créer une guerre civile dans la salle...
 
 **Pour ceux qui sont en avance...**
-La ressource Ingress est, dans ce cluster, gerée par Traefik. Comme tout reverse proxy, il dispose de nombreux paramètres de configuration.
+La ressource Ingress est, dans ce cluster, gerée par Traefik. Comme tout reverse proxy, il dispose de nombreux paramètres de configuration. Cette configuration peut etre injectée sous forme d'annotations sur la ressource Ingress. Certaines annotations sont standardisées (ex basic auth), d'autres non (filtrage IP).
 * Sécuriser l'accès avec du basic auth, via une annotation spécifique à Traefik
 * Ou (plus simple) : bloquer l'accès à certaines IPs seulement (demander à Simon pour ouvrir temporairement le security group de manière plus large pour valider)
 ## Un peu de doc
