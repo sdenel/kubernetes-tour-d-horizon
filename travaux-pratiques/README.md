@@ -67,6 +67,35 @@ Comme on a vu (fallait suivre !) du haut d'un Deployment, vous obtenez un tas de
 La ressource Ingress est, dans ce cluster, gerée par Traefik. Comme tout reverse proxy, il dispose de nombreux paramètres de configuration.
 * Sécuriser l'accès avec du basic auth, via une annotation spécifique à Traefik
 * Ou (plus simple) : bloquer l'accès à certaines IPs seulement (demander à Simon pour ouvrir temporairement le security group de manière plus large pour valider)
+## Un peu de doc
+### Sécurisation avec user/password (basic auth) :
+
+```bash
+htpasswd -c unfichierquivacontenirusrpwdhashe unutilisateur
+kubectl create secret generic unsecret --from-file=unfichierquivacontenirusrpwdhashe
+```
+
+Puis ajouter comme annotations à l'ingress :
+
+```yaml
+annotations:
+  ingress.kubernetes.io/auth-type: basic
+  ingress.kubernetes.io/auth-secret: unsecret
+  traefik.frontend.rule.type: PathPrefixStrip
+```
+
+Voir également : <https://docs.traefik.io/configuration/entrypoints/#basic-authentication>
+
+### Filtrage IP :
+
+Ajouter les annotations suivantes à l'Ingress:
+
+```yaml
+annotations:
+  traefik.ingress.kubernetes.io/whitelist-source-range: "1.2.3.4/32"
+  ingress.kubernetes.io/whitelist-x-forwarded-for: "true"
+```
+
 
 
 
