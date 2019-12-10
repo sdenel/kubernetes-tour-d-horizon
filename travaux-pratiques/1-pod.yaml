@@ -1,7 +1,7 @@
 kind: Pod
 apiVersion: v1
 metadata:
-  name: mon-premier-prod
+  name: mon-premier-pod
 spec:
   containers:
   - name: container-1
