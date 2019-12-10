@@ -5,5 +5,5 @@ metadata:
 spec:
   containers:
   - name: container-1
-    image: sdenel/hello-world # nginx:alpine
+    image: nginx:alpine # sdenel/hello-world
 # TODO tuer, parler distroless
