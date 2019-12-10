@@ -6,4 +6,3 @@ spec:
   containers:
   - name: container-1
     image: nginx:alpine # sdenel/hello-world
-# TODO tuer, parler distroless
