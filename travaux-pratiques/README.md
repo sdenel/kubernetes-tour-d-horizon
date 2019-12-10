@@ -1,6 +1,6 @@
 # Contexte
 L'objectif de ce TP est de comprendre l'interet des ressources Kubernetes de type Pod, Deployment, Service, et Ingress.
-* Vous avez un cluster à votre disposition. Accès derrière les IPs Richemont exclusivement (me faire signe pour ouvrir plus large)
+* Vous avez un cluster à votre disposition. Accès derrière les IPs whitelistées exclusivement (me faire signe pour ouvrir plus large)
 * Liens utiles :
     * Dashboard Kubernetes : https://dashboard.k8s.lab.smartwavesa.com
     * Terminal de la workstation : https://workstation-term.k8s.lab.smartwavesa.com ou en ssh : prenom:prenom@workstation.k8s.lab.smartwavesa.com
@@ -25,7 +25,7 @@ L'objectif de ce TP est de comprendre l'interet des ressources Kubernetes de typ
 1. Utiliser l'image sdenel/hello-world :
     * Retenter `k exec -ti mon-premier-prod /bin/sh`
     * Comme vous le remarquez, ce n'est pas possible ! l'image ne contient que l'executable nginx et ses dépendances (sans bash ni sh ni aucun gestionnaire de paquet). Elle est distroless. Voir les sources : https://github.com/sdenel/docker-nginx-file-listing
-2. Ajouter une livenessProbe au pod (qui expose sur le pod 80)
+2. Ajouter une livenessProbe au pod (qui expose actuellement sur le pod 80)
 
 # II. Deployment
 Comme on a vu, un pod est éphemere. Pour assurer que N pods ayant la meme définition soient toujours up, on a besoin d'instancier une ressource de type Deployment.
