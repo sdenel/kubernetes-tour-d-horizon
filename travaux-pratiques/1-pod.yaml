@@ -5,4 +5,4 @@ metadata:
 spec:
   containers:
   - name: container-1
-    image: nginx:alpine # sdenel/hello-world
+    image: sdenel/hello-world # TODO use nginx:alpine  instead during the TP instead of sdenel/hello-world
