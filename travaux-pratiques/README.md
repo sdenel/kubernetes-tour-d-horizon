@@ -61,6 +61,8 @@ Comme on a vu dans les slides, avec un Deployment, vous obtenez un tas de pods �
 # IV. Ingress
 1. **Customiser** puis déployer la ressource de type ingress. Attention à utiliser un nom qui vous est propre pour ne pas créer une guerre civile dans la salle...
 
+Astuce : vous pouvez personnaliser le fichier "/usr/share/nginx/html/index.html" dans le pod courant pour valider que c'est bien votre pod qui répond
+
 **Pour ceux qui sont en avance...**
 La ressource Ingress est, dans ce cluster, gerée par Traefik. Comme tout reverse proxy, il dispose de nombreux paramètres de configuration. Cette configuration peut etre injectée sous forme de "Middleware" (voir la doc en ligne de Traefik 2).
 * Sécuriser l'accès avec du basic auth, via une annotation spécifique à Traefik
