@@ -22,7 +22,7 @@ spec:
   routes:
     # Home
     - kind: Rule
-      match: demo.k8s.denel.io
+      match: Host(`demo.k8s.denel.io`)
       #      middlewares:
       #        - name: management-basicauth-admin
       #        - name: compress
