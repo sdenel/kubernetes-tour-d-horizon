@@ -70,5 +70,5 @@ La ressource Ingress est, dans ce cluster, gerée par Traefik. Comme tout revers
 
 # V. Et pour ceux qui s'ennuient...
 * Créer une ConfigMap, et injecter une des valeurs qu'il contient dans un pod sous forme de variable d'environnement et/ou de fichier.
-* Déployer une DB (ex postgres) et appliquer une NetworkPolicy autour pour empecher les pods qui ne sont pas dans votre deployment d'y accéder. Valider :-) Exemple de NetworkPolicy ici : https://github.com/sdenel/blog/blob/master/deployment/k8s-init.yaml 
+* Déployer une DB (ex postgres) et appliquer une NetworkPolicy autour pour empecher les pods qui ne sont pas dans votre deployment d'y accéder. Valider :-) Exemple de NetworkPolicy ici : https://github.com/sdenel/blog/blob/da7fa9c72f5a0a365c496c5937fd1a6962953ebe/deployment/k8s-init.yaml
 * Enlever proprement puis remettre le worker node "worker-linux-2.k8s.lab.smartwavesa.com" : cordon / drain / reboot / uncordon
