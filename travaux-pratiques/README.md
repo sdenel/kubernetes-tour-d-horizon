@@ -55,7 +55,7 @@ Comme on a vu dans les slides, avec un Deployment, vous obtenez un tas de pods �
 5. Aller voir les iptables sur un des noeuds du cluster (Errata: vrai si on utilisait Calico, non étudié avec Flannel)
    Avec le plugin Flannel les services ne sont in fine que des règles de routage IPTables.
    A noter que avec Flannel (et Calico également ?) les communications entre pods qui ne sont pas sur un meme node passent par VxLan :
-   * Pas de chiffrement pas défaut
+   * Pas de chiffrement par défaut
    * Communications en UDP. Les paquets encapsulés sont potentiellement déjà en TCP si nécessaire.
    
 # IV. Ingress
