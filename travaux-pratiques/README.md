@@ -15,14 +15,14 @@ L'objectif de ce TP est de comprendre l'interet des ressources Kubernetes de typ
             * Via le CLI + jq pour les vrais : `k get pods mon-premier-pod -o json | jq -r '.status.podIP'
         * La fournir à votre camarade. Normalement, vous exposez en HTTP sur le port 80.
     * **Toto** :
-        * Ouvrir un terminal dans votre pod : `k exec -ti mon-premier-prod /bin/sh`
+        * Ouvrir un terminal dans votre pod : `k exec -ti mon-premier-pod /bin/sh`
         * Installer curl (apk curl) puis récupérer le contenu exposé par le pod de votre voisin
-   On vient de montrer que par défaut, les pods du namespace de votre binome ont le droit d'accéder aux pods dans votre namespace, et que les pods munis d'un terminal (non distroless) peuvnet etre pratiques... pour un attaquant !
+   On vient de montrer que par défaut, les pods du namespace de votre binome ont le droit d'accéder aux pods dans votre namespace, et que les pods munis d'un terminal (non distroless) peuvent etre pratiques... pour un attaquant !
 3. Supprimer votre pod pour simuler une erreur : il ne revient pas ! Un pod doit etre vu comme un objet immuable et éphémère.
 
 **Pour ceux qui sont en avance (ou qui veulent rouler des mécaniques)...**
 1. Utiliser l'image sdenel/hello-world :
-    * Retenter `k exec -ti mon-premier-prod /bin/sh`
+    * Retenter `k exec -ti mon-premier-pod /bin/sh`
     * Comme vous le remarquez, ce n'est pas possible ! l'image ne contient que l'executable nginx et ses dépendances (sans bash ni sh ni aucun gestionnaire de paquet). Elle est distroless. Voir les sources : https://github.com/sdenel/docker-nginx-file-listing
 2. Ajouter une livenessProbe au pod (qui expose actuellement sur le pod 80)
 
